@@ -1,0 +1,21 @@
+[
+{
+  "modid": "Ultratech",
+  "name": "Ultratech Mod",
+  "description": "The Periodic Table of Elements... in Minecraft!",
+  "version": "@VERSION@",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "fiendfan1",
+    ""
+  ],
+  "credits": "Created by fiendfan1, Credit to periodictableofvideos on youtube for teaching me about Elements!",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
