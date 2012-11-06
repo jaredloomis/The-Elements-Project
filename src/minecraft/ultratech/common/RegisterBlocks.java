@@ -6,7 +6,9 @@ import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.ItemStack;
 import ultratech.client.BaseConfigure;
 import ultratech.common.blocks.BlockAirPurifier;
+import ultratech.common.blocks.BlockBeryl;
 import ultratech.common.blocks.BlockBeryllium;
+import ultratech.common.blocks.BlockBorax;
 import ultratech.common.blocks.BlockBoron;
 import ultratech.common.blocks.BlockCarbon;
 import ultratech.common.blocks.BlockCopper;
@@ -40,6 +42,8 @@ public class RegisterBlocks
 	public static Block purifier;
 	public static Block fluorite;
 	public static Block freezer;
+	public static Block beryl;
+	public static Block borax;
 	
 	public static void init()
 	{
@@ -58,7 +62,9 @@ public class RegisterBlocks
 		generator = new BlockGenerator(cg.generatorID, 10).setResistance(1F).setHardness(1F).setBlockName("generator").setCreativeTab(CreativeTabs.tabRedstone);
 		purifier = new BlockAirPurifier(cg.purifierID, 11).setResistance(1F).setHardness(1F).setBlockName("purifier").setCreativeTab(CreativeTabs.tabRedstone);
 		fluorite = new BlockFluorite(cg.fluoriteID, 12).setHardness(5F).setResistance(1F).setLightValue(0.5F).setBlockName("fluorite").setCreativeTab(CreativeTabs.tabBlock);
+		beryl = new BlockBeryl(cg.berylID, 12).setHardness(5F).setResistance(1F).setBlockName("beryl").setCreativeTab(CreativeTabs.tabBlock);
 		freezer = new BlockSuperFreezer("freezer", cg.freezerID).setHardness(5F).setResistance(1F).setBlockName("freezer").setCreativeTab(CreativeTabs.tabRedstone);
+		borax = new BlockBorax(cg.boraxID, 7).setHardness(5F).setResistance(1F).setBlockName("borax").setCreativeTab(CreativeTabs.tabBlock);
 		
 		LanguageRegistry.addName(one, "Hydrogen");
 		LanguageRegistry.addName(two, "Helium");
@@ -75,8 +81,9 @@ public class RegisterBlocks
 		LanguageRegistry.addName(generator, "Electrolyzer");
 		LanguageRegistry.addName(purifier, "Air Purifier");
 		LanguageRegistry.addName(fluorite, "Fluorite");
-		LanguageRegistry.addName(fluorite, "Fluorite");
+		LanguageRegistry.addName(beryl, "Beryl");
 		LanguageRegistry.addName(freezer, "Super Freezer");
+		LanguageRegistry.addName(borax, "Borax");
 		
 		
 		GameRegistry.registerBlock(one);
@@ -95,11 +102,12 @@ public class RegisterBlocks
 		GameRegistry.registerBlock(purifier);
 		GameRegistry.registerBlock(fluorite);
 		GameRegistry.registerBlock(freezer);
+		GameRegistry.registerBlock(beryl);
+		GameRegistry.registerBlock(borax);
 		
+		GameRegistry.addShapelessRecipe(new ItemStack(nine), new ItemStack(fluorite));
 		
-		GameRegistry.addRecipe(new ItemStack(nine), new Object[]
-				{
-					"L  ", "   ", "   ", 'L', fluorite
-				});
+		GameRegistry.addSmelting(BaseConfigure.berylID, new ItemStack(four), 3);
+		GameRegistry.addSmelting(BaseConfigure.boraxID, new ItemStack(five), 3);
 	}
 }

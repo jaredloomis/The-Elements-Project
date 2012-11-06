@@ -17,7 +17,36 @@ public class BlockAirPurifier extends BlockUT
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{	
-		super.react(world, x, y, z, BaseConfigure.purifierID, null);
+		if(world.getBlockId(x+1, y, z) == 0)
+		{
+			world.setBlockWithNotify(x+1, y, z, BaseConfigure.oxygenID);
+		}
+		
+		if(world.getBlockId(x-1, y, z) == 0)
+		{
+			world.setBlockWithNotify(x-1, y, z, BaseConfigure.oxygenID);
+		}
+		
+		if(world.getBlockId(x, y+1, z) == 0)
+		{
+			world.setBlockWithNotify(x, y+1, z, BaseConfigure.oxygenID);
+		}
+		
+		if(world.getBlockId(x, y-1, z) == 0)
+		{
+			world.setBlockWithNotify(x, y-1, z, BaseConfigure.oxygenID);
+		}
+		
+		if(world.getBlockId(x, y, z+1) == 0)
+		{
+			world.setBlockWithNotify(x, y, z+1, BaseConfigure.oxygenID);
+		}
+		
+		if(world.getBlockId(x, y, z-1) == 0)
+		{
+			world.setBlockWithNotify(x+1, y, z-1, BaseConfigure.oxygenID);
+		}
+		
 		return true;
 	}
 }

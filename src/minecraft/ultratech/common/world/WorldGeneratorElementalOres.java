@@ -24,12 +24,32 @@ public class WorldGeneratorElementalOres implements IWorldGenerator
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ) 
 	{
-		int Xcoord = blockX + random.nextInt(16);
-		int Ycoord = random.nextInt(60);
-		int Zcoord = blockZ + random.nextInt(16);
-
-		for(int i = 0; i < 5; i++)
-			(new WorldGenMinable(BaseConfigure.fluoriteID, 5)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		for(int i = 0; i < 8; i++)
+        {
+                int Xcoord = blockX + random.nextInt(16);
+        		int Ycoord = random.nextInt(60);
+        		int Zcoord = blockZ + random.nextInt(16);
+        		
+        		(new WorldGenMinable(BaseConfigure.fluoriteID, 5)).generate(world, random, Xcoord, Ycoord, Zcoord);
+        }
+		
+		for(int i = 0; i < 16; i++)
+        {
+                int Xcoord = blockX + random.nextInt(16);
+        		int Ycoord = random.nextInt(60);
+        		int Zcoord = blockZ + random.nextInt(16);
+        		
+        		(new WorldGenMinable(BaseConfigure.berylID, 5)).generate(world, random, Xcoord, Ycoord, Zcoord);
+        }
+		
+		for(int i = 0; i < 16; i++)
+        {
+                int Xcoord = blockX + random.nextInt(16);
+        		int Ycoord = random.nextInt(60);
+        		int Zcoord = blockZ + random.nextInt(16);
+        		
+        		(new WorldGenMinable(BaseConfigure.boraxID, 5)).generate(world, random, Xcoord, Ycoord, Zcoord);
+        }
 	}
 
 	private void generateNether(World world, Random random, int blockX, int blockZ) 

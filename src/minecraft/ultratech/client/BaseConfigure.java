@@ -20,6 +20,8 @@ public class BaseConfigure
 	public static int purifierID;
 	public static int fluoriteID;
 	public static int freezerID;
+	public static int berylID;
+	public static int boraxID;
 	
 	public static void init(FMLPreInitializationEvent event)
 	{
@@ -42,6 +44,8 @@ public class BaseConfigure
 		purifierID = config.getBlock("purifier", 2699).getInt();
 		fluoriteID = config.getBlock("Fluorite", 2698).getInt();
 		freezerID = config.getBlock("Freezer", 2697).getInt();
+		berylID = config.getBlock("Beryl", 2696).getInt();
+		boraxID = config.getBlock("Borax", 2695).getInt();
 		
 		//configFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
 		config.save();
