@@ -16,11 +16,21 @@ public class ReactionHandler
 		cleanUpAir();
 	}
 
-	public void addReactantToExistingReaction(int y, int reactant)
+	public static void addReactantToExistingReaction(int y, int reactant)
 	{
-		int length = arrayOfArray[y].length;
+		boolean isDone = false;
 
-		arrayOfArray[length + 1][y] = reactant;
+		for(int x = 0; x < arrayOfArray.length; x++)
+		{
+			if(!isDone)
+			{
+				if(arrayOfArray[x][y] == -1)
+				{
+					arrayOfArray[x][y] = reactant;
+					isDone = true;
+				}
+			}
+		}
 	}
 
 	public static int getBlockAt(int x, int y)
@@ -111,7 +121,7 @@ public class ReactionHandler
 				}
 			}
 		}
-		
+
 		return list;
 	}
 
