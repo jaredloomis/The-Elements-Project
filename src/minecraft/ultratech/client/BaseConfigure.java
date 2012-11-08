@@ -14,6 +14,7 @@ public class BaseConfigure
 	public static int oxygenID;
 	public static int flourineID;
 	public static int neonID;
+	public static int sodiumID;
 	public static int copperID;
 
 	public static int generatorID;
@@ -22,6 +23,9 @@ public class BaseConfigure
 	public static int freezerID;
 	public static int berylID;
 	public static int boraxID;
+	public static int brineID;
+	public static int saltID;
+	public static int reactorID;
 	
 	public static void init(FMLPreInitializationEvent event)
 	{
@@ -38,6 +42,7 @@ public class BaseConfigure
 		oxygenID = config.getBlock("Oxygen", 2708).getInt();
 		flourineID = config.getBlock("Flourine", 2709).getInt();
 		neonID = config.getBlock("Neon", 2710).getInt();
+		sodiumID = config.getBlock("Sodium", 2711).getInt();
 		copperID = config.getBlock("Copper", 2729).getInt();
 
 		generatorID = config.getBlock("Generator", 2700).getInt();
@@ -46,6 +51,9 @@ public class BaseConfigure
 		freezerID = config.getBlock("Freezer", 2697).getInt();
 		berylID = config.getBlock("Beryl", 2696).getInt();
 		boraxID = config.getBlock("Borax", 2695).getInt();
+		brineID = config.getBlock("Brine", 2694).getInt();
+		saltID = config.getBlock("Salt", 2693).getInt();
+		reactorID = config.getBlock("Reactor", 2692).getInt();
 		
 		//configFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
 		config.save();

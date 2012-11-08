@@ -18,7 +18,7 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.*;
 import cpw.mods.fml.common.registry.*;
 
-@Mod(modid = "Ultratech", name = "Ultratech Mod", version = "1.0")
+@Mod(modid = "Ultratech", name = "Ultratech Mod", version = "1.1.2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class mod_Ultratech
 {	
@@ -26,7 +26,7 @@ public class mod_Ultratech
 	public static CommonProxyUT proxy;
 
 	@Instance("Ultratech")
-	public mod_Ultratech instance;
+	public static mod_Ultratech instance;
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)

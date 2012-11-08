@@ -3,6 +3,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import ultratech.client.BaseConfigure;
 import ultratech.common.blocks.BlockAirPurifier;
@@ -10,6 +11,7 @@ import ultratech.common.blocks.BlockBeryl;
 import ultratech.common.blocks.BlockBeryllium;
 import ultratech.common.blocks.BlockBorax;
 import ultratech.common.blocks.BlockBoron;
+import ultratech.common.blocks.BlockBrine;
 import ultratech.common.blocks.BlockCarbon;
 import ultratech.common.blocks.BlockCopper;
 import ultratech.common.blocks.BlockFluorine;
@@ -21,7 +23,9 @@ import ultratech.common.blocks.BlockLithium;
 import ultratech.common.blocks.BlockNeon;
 import ultratech.common.blocks.BlockNitrogen;
 import ultratech.common.blocks.BlockOxygen;
-import ultratech.common.blocks.BlockSuperFreezer;
+import ultratech.common.blocks.BlockReactor;
+import ultratech.common.blocks.BlockSalt;
+import ultratech.common.blocks.BlockSodium;
 
 public class RegisterBlocks 
 {
@@ -36,14 +40,17 @@ public class RegisterBlocks
 	public static Block eight;
 	public static Block nine;
 	public static Block ten;
+	public static Block eleven;
 	public static Block twentyNine;
 	
 	public static Block generator;
 	public static Block purifier;
 	public static Block fluorite;
-	public static Block freezer;
 	public static Block beryl;
 	public static Block borax;
+	public static Block brine;
+	public static Block salt;
+	public static Block reactor;
 	
 	public static void init()
 	{
@@ -57,14 +64,17 @@ public class RegisterBlocks
 		eight = new BlockOxygen(cg.oxygenID, 9).setResistance(0F).setBlockName("oxygen").setCreativeTab(CreativeTabs.tabBlock);
 		nine = new BlockFluorine(cg.flourineID, 5).setResistance(1F).setBlockName("flourine").setCreativeTab(CreativeTabs.tabBlock);
 		ten = new BlockNeon(cg.neonID, 8).setResistance(1F).setBlockName("neon").setCreativeTab(CreativeTabs.tabBlock);
+		eleven = new BlockSodium(cg.sodiumID, 14).setResistance(1F).setBlockName("sodium").setCreativeTab(CreativeTabs.tabBlock);
 		twentyNine = new BlockCopper(cg.copperID).setResistance(1F).setBlockName("copper").setCreativeTab(CreativeTabs.tabBlock);
 
 		generator = new BlockGenerator(cg.generatorID, 10).setResistance(1F).setHardness(1F).setBlockName("generator").setCreativeTab(CreativeTabs.tabRedstone);
 		purifier = new BlockAirPurifier(cg.purifierID, 11).setResistance(1F).setHardness(1F).setBlockName("purifier").setCreativeTab(CreativeTabs.tabRedstone);
 		fluorite = new BlockFluorite(cg.fluoriteID, 12).setHardness(5F).setResistance(1F).setLightValue(0.5F).setBlockName("fluorite").setCreativeTab(CreativeTabs.tabBlock);
 		beryl = new BlockBeryl(cg.berylID, 12).setHardness(5F).setResistance(1F).setBlockName("beryl").setCreativeTab(CreativeTabs.tabBlock);
-		freezer = new BlockSuperFreezer("freezer", cg.freezerID).setHardness(5F).setResistance(1F).setBlockName("freezer").setCreativeTab(CreativeTabs.tabRedstone);
-		borax = new BlockBorax(cg.boraxID, 7).setHardness(5F).setResistance(1F).setBlockName("borax").setCreativeTab(CreativeTabs.tabBlock);
+		borax = new BlockBorax(cg.boraxID, 16).setHardness(5F).setResistance(1F).setBlockName("borax").setCreativeTab(CreativeTabs.tabBlock);
+		brine = new BlockBrine(cg.brineID, 15).setHardness(5F).setResistance(1F).setBlockName("brine").setCreativeTab(CreativeTabs.tabBlock);
+		salt = new BlockSalt(cg.saltID, 16).setHardness(5F).setResistance(1F).setBlockName("salt").setCreativeTab(CreativeTabs.tabBlock);
+		reactor = new BlockReactor("reactor", cg.reactorID, 10).setHardness(5F).setResistance(1F).setBlockName("reactor").setCreativeTab(CreativeTabs.tabRedstone);
 		
 		LanguageRegistry.addName(one, "Hydrogen");
 		LanguageRegistry.addName(two, "Helium");
@@ -76,14 +86,17 @@ public class RegisterBlocks
 		LanguageRegistry.addName(eight, "Oxygen");
 		LanguageRegistry.addName(nine, "Fluorine");
 		LanguageRegistry.addName(ten, "Neon");
+		LanguageRegistry.addName(eleven, "Sodium");
 		LanguageRegistry.addName(twentyNine, "Copper");
 
 		LanguageRegistry.addName(generator, "Electrolyzer");
 		LanguageRegistry.addName(purifier, "Air Purifier");
 		LanguageRegistry.addName(fluorite, "Fluorite");
 		LanguageRegistry.addName(beryl, "Beryl");
-		LanguageRegistry.addName(freezer, "Super Freezer");
 		LanguageRegistry.addName(borax, "Borax");
+		LanguageRegistry.addName(brine, "Brine");
+		LanguageRegistry.addName(salt, "Salt");
+		LanguageRegistry.addName(reactor, "Reactor");
 		
 		
 		GameRegistry.registerBlock(one);
@@ -96,18 +109,32 @@ public class RegisterBlocks
 		GameRegistry.registerBlock(eight);
 		GameRegistry.registerBlock(nine);
 		GameRegistry.registerBlock(ten);
+		GameRegistry.registerBlock(eleven);
 		GameRegistry.registerBlock(twentyNine);
 
 		GameRegistry.registerBlock(generator);
 		GameRegistry.registerBlock(purifier);
 		GameRegistry.registerBlock(fluorite);
-		GameRegistry.registerBlock(freezer);
 		GameRegistry.registerBlock(beryl);
 		GameRegistry.registerBlock(borax);
+		GameRegistry.registerBlock(brine);
+		GameRegistry.registerBlock(salt);
+		GameRegistry.registerBlock(reactor);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(nine), new ItemStack(fluorite));
 		
+		GameRegistry.addRecipe(new ItemStack(six), new Object[]
+				{
+			"CCC", "CCC", "CCC", 'C', Item.coal
+				});
+		
+		GameRegistry.addRecipe(new ItemStack(reactor), new Object[]
+				{
+			"CCC", "CSC", "CCC", 'C', Item.ingotIron, 'S', three
+				});
+		
 		GameRegistry.addSmelting(BaseConfigure.berylID, new ItemStack(four), 3);
 		GameRegistry.addSmelting(BaseConfigure.boraxID, new ItemStack(five), 3);
+		GameRegistry.addSmelting(BaseConfigure.brineID, new ItemStack(three), 3);
 	}
 }
