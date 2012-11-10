@@ -13,6 +13,7 @@ import ultratech.common.blocks.BlockBorax;
 import ultratech.common.blocks.BlockBoron;
 import ultratech.common.blocks.BlockBrine;
 import ultratech.common.blocks.BlockCarbon;
+import ultratech.common.blocks.BlockCollider;
 import ultratech.common.blocks.BlockCopper;
 import ultratech.common.blocks.BlockFluorine;
 import ultratech.common.blocks.BlockFluorite;
@@ -20,6 +21,7 @@ import ultratech.common.blocks.BlockGenerator;
 import ultratech.common.blocks.BlockHelium;
 import ultratech.common.blocks.BlockHydrogen;
 import ultratech.common.blocks.BlockLithium;
+import ultratech.common.blocks.BlockMatterBuilder;
 import ultratech.common.blocks.BlockNeon;
 import ultratech.common.blocks.BlockNitrogen;
 import ultratech.common.blocks.BlockOxygen;
@@ -51,6 +53,8 @@ public class RegisterBlocks
 	public static Block brine;
 	public static Block salt;
 	public static Block reactor;
+	public static Block builder;
+	public static Block collider;
 	
 	public static void init()
 	{
@@ -75,6 +79,9 @@ public class RegisterBlocks
 		brine = new BlockBrine(cg.brineID, 15).setHardness(5F).setResistance(1F).setBlockName("brine").setCreativeTab(CreativeTabs.tabBlock);
 		salt = new BlockSalt(cg.saltID, 16).setHardness(5F).setResistance(1F).setBlockName("salt").setCreativeTab(CreativeTabs.tabBlock);
 		reactor = new BlockReactor("reactor", cg.reactorID, 10).setHardness(5F).setResistance(1F).setBlockName("reactor").setCreativeTab(CreativeTabs.tabRedstone);
+		builder = new BlockMatterBuilder(cg.builderID, 10).setHardness(5F).setResistance(1F).setBlockName("builder").setCreativeTab(CreativeTabs.tabRedstone);
+		collider = new BlockCollider(cg.colliderID, 10).setHardness(5F).setResistance(1F).setBlockName("collider").setCreativeTab(CreativeTabs.tabRedstone);
+		
 		
 		LanguageRegistry.addName(one, "Hydrogen");
 		LanguageRegistry.addName(two, "Helium");
@@ -97,6 +104,8 @@ public class RegisterBlocks
 		LanguageRegistry.addName(brine, "Brine");
 		LanguageRegistry.addName(salt, "Salt");
 		LanguageRegistry.addName(reactor, "Reactor");
+		LanguageRegistry.addName(builder, "Matter Builder");
+		LanguageRegistry.addName(collider, "Atom Collider");
 		
 		
 		GameRegistry.registerBlock(one);
@@ -112,14 +121,16 @@ public class RegisterBlocks
 		GameRegistry.registerBlock(eleven);
 		GameRegistry.registerBlock(twentyNine);
 
-		GameRegistry.registerBlock(generator);
-		GameRegistry.registerBlock(purifier);
+		//GameRegistry.registerBlock(generator);
+		//GameRegistry.registerBlock(purifier);
 		GameRegistry.registerBlock(fluorite);
 		GameRegistry.registerBlock(beryl);
 		GameRegistry.registerBlock(borax);
 		GameRegistry.registerBlock(brine);
 		GameRegistry.registerBlock(salt);
 		GameRegistry.registerBlock(reactor);
+		GameRegistry.registerBlock(builder);
+		//GameRegistry.registerBlock(collider);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(nine), new ItemStack(fluorite));
 		

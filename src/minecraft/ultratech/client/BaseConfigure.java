@@ -26,6 +26,12 @@ public class BaseConfigure
 	public static int brineID;
 	public static int saltID;
 	public static int reactorID;
+	public static int builderID;
+	public static int colliderID;
+	
+	public static int protonID;
+	public static int nuetronID;
+	public static int electronID;
 	
 	public static void init(FMLPreInitializationEvent event)
 	{
@@ -54,6 +60,12 @@ public class BaseConfigure
 		brineID = config.getBlock("Brine", 2694).getInt();
 		saltID = config.getBlock("Salt", 2693).getInt();
 		reactorID = config.getBlock("Reactor", 2692).getInt();
+		builderID = config.getBlock("MatterBuilder", 2691).getInt();
+		colliderID = config.getBlock("Collider", 2690).getInt();
+		
+		protonID = config.getItem("Proton", 2550).getInt();
+		nuetronID = config.getItem("Nuetron", 2551).getInt();
+		electronID = config.getItem("Electron", 2552).getInt();
 		
 		//configFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
 		config.save();
