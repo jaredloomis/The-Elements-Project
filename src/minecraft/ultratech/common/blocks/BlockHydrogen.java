@@ -12,7 +12,7 @@ public class BlockHydrogen extends BlockUTGas
 	public BlockHydrogen(int id, int index) 
 	{
 		super(id, index, Material.air);
-		setBurnProperties(this.blockID, 100, 20);
+		setBurnProperties(BaseConfigure.hydrogenID, 100, 20);
 	}
 	
 	@Override

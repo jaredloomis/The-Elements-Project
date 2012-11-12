@@ -53,7 +53,7 @@ public class GuiHandlerUT implements IGuiHandler
 
 		if(id == 1)
 		{
-			if(tile_entity instanceof TileMatterBuilder)
+			if(tile_entity instanceof TileCollider)
 			{
 				return new GuiSmasher(player.inventory, (TileCollider) tile_entity);
 			}

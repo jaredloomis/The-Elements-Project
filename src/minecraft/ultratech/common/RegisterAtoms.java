@@ -18,6 +18,7 @@ public class RegisterAtoms
 		l.registerAtom(RegisterBlocks.nine, 9, 9, 9);
 		l.registerAtom(RegisterBlocks.ten, 10, 10, 10);
 		l.registerAtom(RegisterBlocks.eleven, 11, 11, 11);
+		l.registerAtom(RegisterBlocks.twelve, 12, 12, 12);
 		l.registerAtom(RegisterBlocks.twentyNine, 29, 29, 29);
 	}
 }

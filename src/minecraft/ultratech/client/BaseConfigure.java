@@ -15,6 +15,8 @@ public class BaseConfigure
 	public static int flourineID;
 	public static int neonID;
 	public static int sodiumID;
+	public static int magnesiumID;
+	public static int siliconID;
 	public static int copperID;
 
 	public static int generatorID;
@@ -49,6 +51,8 @@ public class BaseConfigure
 		flourineID = config.getBlock("Flourine", 2709).getInt();
 		neonID = config.getBlock("Neon", 2710).getInt();
 		sodiumID = config.getBlock("Sodium", 2711).getInt();
+		magnesiumID = config.getBlock("Magnesium", 2712).getInt();
+		siliconID = config.getBlock("Silicon", 2713).getInt();
 		copperID = config.getBlock("Copper", 2729).getInt();
 
 		generatorID = config.getBlock("Generator", 2700).getInt();

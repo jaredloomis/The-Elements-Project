@@ -163,7 +163,6 @@ public class TileMatterBuilder extends TileEntity implements IInventory
 
 		boolean go = true;
 		AtomLibrary al = new AtomLibrary();
-		//al.visualize(10);
 
 		if(this.getStackInSlot(0) != null && this.getStackInSlot(1) != null && this.getStackInSlot(2) != null)
 		{
@@ -188,7 +187,7 @@ public class TileMatterBuilder extends TileEntity implements IInventory
 										this.setInventorySlotContents(0, null);
 										this.setInventorySlotContents(1, null);
 										this.setInventorySlotContents(2, null);
-										
+
 										go = false;
 										break;
 									}
@@ -201,5 +200,11 @@ public class TileMatterBuilder extends TileEntity implements IInventory
 				}
 			}
 		}
+	}
+
+	@Override
+	public void updateEntity()
+	{
+		
 	}
 }

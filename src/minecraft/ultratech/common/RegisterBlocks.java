@@ -21,12 +21,14 @@ import ultratech.common.blocks.BlockGenerator;
 import ultratech.common.blocks.BlockHelium;
 import ultratech.common.blocks.BlockHydrogen;
 import ultratech.common.blocks.BlockLithium;
+import ultratech.common.blocks.BlockMagnesium;
 import ultratech.common.blocks.BlockMatterBuilder;
 import ultratech.common.blocks.BlockNeon;
 import ultratech.common.blocks.BlockNitrogen;
 import ultratech.common.blocks.BlockOxygen;
 import ultratech.common.blocks.BlockReactor;
 import ultratech.common.blocks.BlockSalt;
+import ultratech.common.blocks.BlockSilicon;
 import ultratech.common.blocks.BlockSodium;
 
 public class RegisterBlocks 
@@ -43,6 +45,8 @@ public class RegisterBlocks
 	public static Block nine;
 	public static Block ten;
 	public static Block eleven;
+	public static Block twelve;
+	public static Block thirteen;
 	public static Block twentyNine;
 	
 	public static Block generator;
@@ -69,6 +73,8 @@ public class RegisterBlocks
 		nine = new BlockFluorine(cg.flourineID, 5).setResistance(1F).setBlockName("flourine").setCreativeTab(CreativeTabs.tabBlock);
 		ten = new BlockNeon(cg.neonID, 8).setResistance(1F).setBlockName("neon").setCreativeTab(CreativeTabs.tabBlock);
 		eleven = new BlockSodium(cg.sodiumID, 14).setResistance(1F).setBlockName("sodium").setCreativeTab(CreativeTabs.tabBlock);
+		twelve = new BlockMagnesium(cg.magnesiumID, 1).setResistance(1F).setBlockName("magnesium").setCreativeTab(CreativeTabs.tabBlock);
+		thirteen = new BlockSilicon(cg.siliconID, 1).setResistance(1F).setBlockName("silicon").setCreativeTab(CreativeTabs.tabRedstone);
 		twentyNine = new BlockCopper(cg.copperID).setResistance(1F).setBlockName("copper").setCreativeTab(CreativeTabs.tabBlock);
 
 		generator = new BlockGenerator(cg.generatorID, 10).setResistance(1F).setHardness(1F).setBlockName("generator").setCreativeTab(CreativeTabs.tabRedstone);
@@ -94,6 +100,8 @@ public class RegisterBlocks
 		LanguageRegistry.addName(nine, "Fluorine");
 		LanguageRegistry.addName(ten, "Neon");
 		LanguageRegistry.addName(eleven, "Sodium");
+		LanguageRegistry.addName(twelve, "Magnesium");
+		LanguageRegistry.addName(thirteen, "Silicon");
 		LanguageRegistry.addName(twentyNine, "Copper");
 
 		LanguageRegistry.addName(generator, "Electrolyzer");
@@ -119,6 +127,8 @@ public class RegisterBlocks
 		GameRegistry.registerBlock(nine);
 		GameRegistry.registerBlock(ten);
 		GameRegistry.registerBlock(eleven);
+		GameRegistry.registerBlock(twelve);
+		GameRegistry.registerBlock(thirteen);
 		GameRegistry.registerBlock(twentyNine);
 
 		//GameRegistry.registerBlock(generator);
@@ -130,7 +140,7 @@ public class RegisterBlocks
 		GameRegistry.registerBlock(salt);
 		GameRegistry.registerBlock(reactor);
 		GameRegistry.registerBlock(builder);
-		//GameRegistry.registerBlock(collider);
+		GameRegistry.registerBlock(collider);
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(nine), new ItemStack(fluorite));
 		

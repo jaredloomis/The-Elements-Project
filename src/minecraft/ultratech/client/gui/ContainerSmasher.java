@@ -19,8 +19,10 @@ public class ContainerSmasher extends Container
 		//@sub-param 0, this is the slot id,
 		//@sub-param 76, this is the x position on the screen for the slot
 		//@sub-param 27, this is the y position on the screen for the slot
-		addSlotToContainer(new Slot(tile_entity, 0, 10, 27));
-		addSlotToContainer(new Slot(tile_entity, 1, 130, 27));
+		addSlotToContainer(new Slot(tile_entity, 0, 44, 26));
+		addSlotToContainer(new Slot(tile_entity, 1, 115, 43));
+		addSlotToContainer(new Slot(tile_entity, 2, 115, 26));
+		addSlotToContainer(new Slot(tile_entity, 3, 115, 9));
 
         
 		bindPlayerInventory(player_inventory);
