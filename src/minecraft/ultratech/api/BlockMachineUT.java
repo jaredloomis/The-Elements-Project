@@ -2,35 +2,29 @@ package ultratech.api;
 import java.util.Random;
 
 import ultratech.common.mod_Ultratech;
+import ultratech.common.tileentities.TileCollider;
 import ultratech.common.tileentities.TileMatterBuilder;
 import net.minecraft.src.*;
 
-public class BlockMachineUT extends BlockContainer
-{
-	public int idGui;
-	
-	public BlockMachineUT(String name, int blockId, int index, int guiID)
+public abstract class BlockMachineUT extends BlockContainer
+{	
+	public BlockMachineUT(int blockId, int index) 
 	{
 		super(blockId, index, Material.rock);
-		setBlockName(name);
-		
-		idGui = guiID;
+		setCreativeTab(mod_Ultratech.tabElements);
 	}
-	
-	// @param int i is not really used in this along with the rest (float f, float g, and float t)
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float f, float g, float t)
+
+	public void openGui(EntityPlayer player, mod_Ultratech instance, int guiID, World world, int x, int y, int z)
 	{
 		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
 
 		if(tile_entity == null || player.isSneaking())
 		{
-			return false;
 		}
-
-		player.openGui(mod_Ultratech.instance, idGui, world, x, y, z);
-		
-		return true;
+		else
+		{
+			player.openGui(mod_Ultratech.instance, guiID, world, x, y, z);
+		}
 	}
 
 	@Override
@@ -46,13 +40,15 @@ public class BlockMachineUT extends BlockContainer
 
 		TileEntity tile_entity = world.getBlockTileEntity(x, y, z);
 
-		if(!(tile_entity instanceof IInventory)){
+		if(!(tile_entity instanceof IInventory))
+		{
 			return;
 		}
 
 		IInventory inventory = (IInventory) tile_entity;
 
-		for(int i = 0; i < inventory.getSizeInventory(); i++){
+		for(int i = 0; i < inventory.getSizeInventory(); i++)
+		{
 			ItemStack item = inventory.getStackInSlot(i);
 
 			if(item != null && item.stackSize > 0){
@@ -75,12 +71,6 @@ public class BlockMachineUT extends BlockContainer
 				item.stackSize = 0;
 			}
 		}
-	}
-	
-	@Override
-	public TileEntity createNewTileEntity(World world)
-	{
-		return null;
 	}
 
 	@Override

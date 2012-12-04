@@ -6,20 +6,24 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NBTTagList;
 import net.minecraft.src.TileEntity;
+import net.minecraftforge.common.ForgeDirection;
 import ultratech.api.TileMachineUT;
 import ultratech.api.matter.AtomLibrary;
 import ultratech.common.RegisterItems;
+import universalelectricity.core.implement.IElectricityProducer;
+import universalelectricity.prefab.tile.TileEntityElectricityReceiver;
 
-public class TileCollider extends TileEntity implements IInventory
+public class TileCollider extends TileEntityElectricityReceiver implements IInventory
 {	
 	private ItemStack[] inventory;
-
 	public boolean canChangeinv;
+	public boolean isPowered;
 
 	public TileCollider()
 	{
-		inventory = new ItemStack[10];
+		inventory = new ItemStack[8];
 		canChangeinv = true;
+		isPowered = false;
 	}
 
 	@Override
@@ -152,43 +156,73 @@ public class TileCollider extends TileEntity implements IInventory
 	{
 		return "TileEntityCollider";
 	}
-
+	
+	
 	@Override
-	public void onInventoryChanged()
+	public void updateEntity()
 	{
-		AtomLibrary al = new AtomLibrary();
-		boolean go;
-		
-		for(int y = 0; y < 118; y++)
-		{	
-			if(this.getStackInSlot(0) != null)
-			{
-				if(this.getStackInSlot(0).getItem().shiftedIndex == al.getProductAtRow(y).blockID)
+		if(isPowered)
+		{
+			AtomLibrary al = new AtomLibrary();
+			boolean go;
+
+			for(int y = 0; y < 118; y++)
+			{	
+				if(this.getStackInSlot(0) != null)
 				{
-					if(this.getStackInSlot(1) == null && this.getStackInSlot(2) == null && this.getStackInSlot(3) == null)
+					if(this.getStackInSlot(0).getItem().shiftedIndex == al.getProductAtRow(y).blockID)
 					{
-						this.setInventorySlotContents(1, new ItemStack(RegisterItems.proton, al.getAmountAtRow(y)[0]));
-						this.setInventorySlotContents(2, new ItemStack(RegisterItems.nuetron, al.getAmountAtRow(y)[1]));
-						this.setInventorySlotContents(3, new ItemStack(RegisterItems.electron, al.getAmountAtRow(y)[2]));
-						
-						this.decrStackSize(0, 1);
-						go = true;
-						break;
+						if(this.getStackInSlot(1) == null && this.getStackInSlot(2) == null && this.getStackInSlot(3) == null)
+						{
+							this.setInventorySlotContents(1, new ItemStack(RegisterItems.proton, al.getAmountAtRow(y)[0]));
+							this.setInventorySlotContents(2, new ItemStack(RegisterItems.nuetron, al.getAmountAtRow(y)[1]));
+							this.setInventorySlotContents(3, new ItemStack(RegisterItems.electron, al.getAmountAtRow(y)[2]));
+
+							this.decrStackSize(0, 1);
+							go = true;
+							break;
+						}
 					}
 				}
-			}
 
-			if(this.getStackInSlot(1) != null || this.getStackInSlot(2) != null || this.getStackInSlot(3) != null)
-			{
-				break;
+				if(this.getStackInSlot(1) != null || this.getStackInSlot(2) != null || this.getStackInSlot(3) != null)
+				{
+					break;
+				}
+
+
+				this.setInventorySlotContents(1, null);
+				this.setInventorySlotContents(2, null);
+				this.setInventorySlotContents(3, null);
 			}
 			
-			
-			this.setInventorySlotContents(1, null);
-			this.setInventorySlotContents(2, null);
-			this.setInventorySlotContents(3, null);
+			isPowered = false;
+			super.updateEntity();
 		}
+	}
 
-		super.onInventoryChanged();
+	@Override
+	public void onReceive(TileEntity sender, double amps, double voltage, ForgeDirection side) 
+	{
+		if(voltage > wattRequest())
+		{
+			isPowered = true;
+		}
+		else
+		{
+			isPowered = false;
+		}
+	}
+
+	@Override
+	public double wattRequest() 
+	{
+		return 110;
+	}
+
+	@Override
+	public boolean canReceiveFromSide(ForgeDirection side) 
+	{
+		return true;
 	}
 }

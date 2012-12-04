@@ -5,8 +5,6 @@ import net.minecraft.src.Material;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 import ultratech.api.BlockUT;
-import universalelectricity.implement.IConductor;
-import universalelectricity.implement.IRedstoneProvider;
 import universalelectricity.prefab.BlockConductor;
 import universalelectricity.prefab.BlockMachine;
 

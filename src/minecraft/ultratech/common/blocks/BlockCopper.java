@@ -18,11 +18,4 @@ public class BlockCopper extends BlockConductorUT
 	{
 		return new TileEntityCopper();
 	}
-
-	@Override
-	public String getTextureFile()
-	{
-		return "/ultratech/common/texturess/ultratechBlocks.png";
-	}
-
 }

@@ -1,6 +1,5 @@
 package ultratech.common.blocks;
 import java.util.Random;
-
 import net.minecraft.src.BlockContainer;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityPlayer;
@@ -10,6 +9,7 @@ import net.minecraft.src.Material;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
+import net.minecraftforge.common.ForgeDirection;
 import ultratech.api.BlockMachineUT;
 import ultratech.common.mod_Ultratech;
 import ultratech.common.tileentities.TileCollider;
@@ -20,7 +20,30 @@ public class BlockCollider extends BlockContainer
 	public BlockCollider(int blockId, int index) 
 	{
 		super(blockId, index, Material.rock);
-		//setBlockName("matterbuilder");
+		setCreativeTab(mod_Ultratech.tabElements);
+	}
+	
+	@Override
+	public int getBlockTextureFromSide(int par1)
+	{
+		if(par1 == 0)
+		{
+			return 23;
+		}
+		if(par1 == 1)
+		{
+			return 24;
+		}
+		if(par1 == 2 || par1 == 3)
+		{
+			return 25;
+		}
+		if(par1 == 4 || par1 == 5)
+		{
+			return 26;
+		}
+		
+		return 0;
 	}
 
 	@Override

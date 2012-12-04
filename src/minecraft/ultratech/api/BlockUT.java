@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 import ultratech.api.reaction.ReactionHandler;
 import ultratech.common.RegisterBlocks;
+import ultratech.common.mod_Ultratech;
 import net.minecraft.src.Block;
+import net.minecraft.src.BlockBreakable;
 import net.minecraft.src.Entity;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
@@ -13,6 +15,7 @@ public class BlockUT extends Block
 	public BlockUT(int id, int index, Material material) 
 	{
 		super(id, index, material);
+		setCreativeTab(mod_Ultratech.tabElements);
 	}
 
 	@Override
@@ -110,7 +113,5 @@ public class BlockUT extends Block
 				}
 			}
 		}
-
-
 	}
 }

@@ -17,12 +17,19 @@ public class BaseConfigure
 	public static int sodiumID;
 	public static int magnesiumID;
 	public static int siliconID;
+	public static int aluminiumID;
+	public static int phosphorusID;
+	public static int sulfurID;
+	public static int chlorineID;
+	public static int argonID;
+	public static int potassiumID;
+	public static int calciumID;
+	public static int scandiumID;
+	public static int titaniumID;
+	public static int vanadiumID;
 	public static int copperID;
 
-	public static int generatorID;
-	public static int purifierID;
 	public static int fluoriteID;
-	public static int freezerID;
 	public static int berylID;
 	public static int boraxID;
 	public static int brineID;
@@ -30,10 +37,17 @@ public class BaseConfigure
 	public static int reactorID;
 	public static int builderID;
 	public static int colliderID;
+	public static int elecID;
+	public static int fissID;
+	public static int bruciteID;
+	public static int alOreID;
+	public static int batteryID;
 	
 	public static int protonID;
 	public static int nuetronID;
 	public static int electronID;
+	public static int crankID;
+	public static int alOxID;
 	
 	public static void init(FMLPreInitializationEvent event)
 	{
@@ -53,12 +67,19 @@ public class BaseConfigure
 		sodiumID = config.getBlock("Sodium", 2711).getInt();
 		magnesiumID = config.getBlock("Magnesium", 2712).getInt();
 		siliconID = config.getBlock("Silicon", 2713).getInt();
+		aluminiumID = config.getBlock("Aluminium", 2714).getInt();
+		phosphorusID = config.getBlock("Phosphorus", 2715).getInt();
+		sulfurID = config.getBlock("Sulfur", 2716).getInt();
+		chlorineID = config.getBlock("Chlorine", 2717).getInt();
+		argonID = config.getBlock("Argon", 2718).getInt();
+		potassiumID = config.getBlock("Potassium", 2719).getInt();
+		calciumID = config.getBlock("Calcium", 2720).getInt();
+		scandiumID = config.getBlock("Scandium", 2721).getInt();
+		titaniumID = config.getBlock("Titanium", 2722).getInt();
+		vanadiumID = config.getBlock("Vanadium", 2723).getInt();
 		copperID = config.getBlock("Copper", 2729).getInt();
 
-		generatorID = config.getBlock("Generator", 2700).getInt();
-		purifierID = config.getBlock("purifier", 2699).getInt();
 		fluoriteID = config.getBlock("Fluorite", 2698).getInt();
-		freezerID = config.getBlock("Freezer", 2697).getInt();
 		berylID = config.getBlock("Beryl", 2696).getInt();
 		boraxID = config.getBlock("Borax", 2695).getInt();
 		brineID = config.getBlock("Brine", 2694).getInt();
@@ -66,10 +87,17 @@ public class BaseConfigure
 		reactorID = config.getBlock("Reactor", 2692).getInt();
 		builderID = config.getBlock("MatterBuilder", 2691).getInt();
 		colliderID = config.getBlock("Collider", 2690).getInt();
+		elecID = config.getBlock("Electrolyzer", 2689).getInt();
+		fissID = config.getBlock("Fission Reactor", 2688).getInt();
+		bruciteID = config.getBlock("Brucite", 2687).getInt();
+		alOreID = config.getBlock("Aluminum Ore", 2686).getInt();
+		batteryID = config.getBlock("Batter", 2685).getInt();
 		
 		protonID = config.getItem("Proton", 2550).getInt();
 		nuetronID = config.getItem("Nuetron", 2551).getInt();
 		electronID = config.getItem("Electron", 2552).getInt();
+		crankID = config.getItem("Crank Generator", 2553).getInt();
+		alOxID = config.getItem("Aluminium Oxide", 2552).getInt();
 		
 		//configFlag = config.get(Configuration.CATEGORY_GENERAL, "SomeConfigFlag", false).getBoolean(false);
 		config.save();

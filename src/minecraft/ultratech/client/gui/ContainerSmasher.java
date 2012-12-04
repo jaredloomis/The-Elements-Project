@@ -6,19 +6,15 @@ import net.minecraft.src.Slot;
 import ultratech.common.tileentities.TileCollider;
 import ultratech.common.tileentities.TileMatterBuilder;
 
-public class ContainerSmasher extends Container
+public class ContainerSmasher extends ContainerUT
 {
 	protected TileCollider tile_entity;
 
 	public ContainerSmasher(TileCollider tile_entity, InventoryPlayer player_inventory)
 	{
+		super(tile_entity.getSizeInventory());
 		this.tile_entity = tile_entity;
 
-		//@param slot, this is the slot declaration, and you can declare a new Slot and this has 4 params
-		//@sub-param tile_entity, this is you TileTutorial
-		//@sub-param 0, this is the slot id,
-		//@sub-param 76, this is the x position on the screen for the slot
-		//@sub-param 27, this is the y position on the screen for the slot
 		addSlotToContainer(new Slot(tile_entity, 0, 44, 26));
 		addSlotToContainer(new Slot(tile_entity, 1, 115, 43));
 		addSlotToContainer(new Slot(tile_entity, 2, 115, 26));

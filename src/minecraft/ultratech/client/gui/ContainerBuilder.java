@@ -1,30 +1,25 @@
 package ultratech.client.gui;
-
 import ultratech.common.tileentities.TileMatterBuilder;
 //This import is not required as I changed the package so I have to implement this, but if you don't then you don't need
 //To import this
 import net.minecraft.src.*;
 
-//Create a class and extend Container
-public class ContainerBuilder extends Container
+public class ContainerBuilder extends ContainerUT
 {
-	//This is a declaration of the TileTutorial Class
 	protected TileMatterBuilder tile_entity;
+	public int inventorySize;
 
 	public ContainerBuilder(TileMatterBuilder tile_entity, InventoryPlayer player_inventory)
 	{
+		super(tile_entity.getSizeInventory());
 		this.tile_entity = tile_entity;
-
-		//@param slot, this is the slot declaration, and you can declare a new Slot and this has 4 params
-		//@sub-param tile_entity, this is you TileTutorial
-		//@sub-param 0, this is the slot id,
-		//@sub-param 76, this is the x position on the screen for the slot
-		//@sub-param 27, this is the y position on the screen for the slot
+		
 		addSlotToContainer(new Slot(tile_entity, 0, 10, 27));
 		addSlotToContainer(new Slot(tile_entity, 1, 50, 27));
 		addSlotToContainer(new Slot(tile_entity, 2, 90, 27));
 		addSlotToContainer(new Slot(tile_entity, 3, 130, 27));
-
+		
+		inventorySize = player_inventory.getSizeInventory();
         
 		bindPlayerInventory(player_inventory);
 	}

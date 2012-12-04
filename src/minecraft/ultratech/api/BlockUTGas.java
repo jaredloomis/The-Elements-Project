@@ -22,13 +22,13 @@ public class BlockUTGas extends BlockUT
 	{
 		return null;
 	}
-	
-	
+
+
 	@Override
 	public boolean isOpaqueCube()
-    {
-        return false;
-    }
+	{
+		return false;
+	}
 
 
 	@Override
@@ -42,8 +42,8 @@ public class BlockUTGas extends BlockUT
 	{
 		updatePosition(world, x, y, z);
 	}
-	
-	
+
+
 	@Override
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
 	{
@@ -57,10 +57,16 @@ public class BlockUTGas extends BlockUT
 			world.setBlockWithNotify(x, y, z, 0);
 			world.setBlockWithNotify(x, y + 1, z, this.blockID);
 		}
-		
+
 		if(y > 250)
 		{
 			world.setBlockWithNotify(x, y, z, 0);
 		}
+	}
+
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 1;
 	}
 }

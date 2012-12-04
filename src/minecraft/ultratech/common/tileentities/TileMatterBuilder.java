@@ -1,14 +1,9 @@
 package ultratech.common.tileentities;
 import java.util.ArrayList;
 import java.util.List;
-
-import buildcraft.api.power.IPowerProvider;
-import buildcraft.api.power.IPowerReceptor;
-
 import ultratech.api.matter.AtomLibrary;
 import ultratech.client.BaseConfigure;
 import ultratech.common.RegisterItems;
-import universalelectricity.implement.IElectricityReceiver;
 
 import net.minecraft.src.*;
 import net.minecraftforge.common.ForgeDirection;

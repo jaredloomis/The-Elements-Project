@@ -124,7 +124,8 @@ public class ReactionHandler
 
 		return list;
 	}
-
+	
+	@Deprecated
 	public static int[] getReactantsCopy(int blockID)
 	{
 		int loopNumber = 0;
@@ -180,6 +181,7 @@ public class ReactionHandler
 		return retArray;
 	}
 
+	@Deprecated
 	public static int[] getReactantsCopyTwo(int blockID)
 	{
 		int loopNumber = 0;

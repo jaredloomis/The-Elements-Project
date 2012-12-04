@@ -11,6 +11,30 @@ public class BlockMatterBuilder extends BlockContainer
 	{
 		super(blockId, index, Material.rock);
 		setBlockName("matterbuilder");
+		setCreativeTab(mod_Ultratech.tabElements);
+	}
+	
+	@Override
+	public int getBlockTextureFromSide(int par1)
+	{
+		if(par1 == 0)
+		{
+			return 27;
+		}
+		if(par1 == 1)
+		{
+			return 28;
+		}
+		if(par1 == 2 || par1 == 3)
+		{
+			return 29;
+		}
+		if(par1 == 4 || par1 == 5)
+		{
+			return 30;
+		}
+		
+		return 0;
 	}
 
 	// @param World, the world instance,

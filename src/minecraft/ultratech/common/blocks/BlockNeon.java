@@ -3,7 +3,6 @@ import net.minecraft.src.Material;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 import ultratech.api.BlockUTGas;
-import universalelectricity.implement.IConductor;
 
 public class BlockNeon extends BlockUTGas
 {
